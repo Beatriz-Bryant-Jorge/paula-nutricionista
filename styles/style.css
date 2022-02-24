@@ -15,7 +15,7 @@
     font-family: 'Neuzeit LT Book Heavy';
     font-weight: 800;
     font-style: normal;
-    src: url('fonts/Neuzeit_S_LT_BookHeavy.ttf');
+    src: url('fonts/Neuzeit_S_LT_BookHeavy.t tf');
 }
 
 *{
@@ -30,7 +30,8 @@
 }
 
 html{
-    background-color: rgb(0, 0, 0, .225);
+    /* background-color: rgb(0, 0, 0, .225); */
+    background-color: red;
 }
 
 body{
