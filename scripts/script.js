@@ -1,3 +1,5 @@
+
+
 // objects
 
 const about = [
@@ -14,7 +16,6 @@ const about = [
     }
 
 ];
-
 
 // booleans
 
@@ -51,10 +52,22 @@ const plusBlack = 'images/icons-plus.png';
 const arrowOrange = 'url(images/icons-arrow-orange.png)';
 const arrowBlack = 'url(images/icons-arrow.png)';
 
-//names
+// names
 
 const her = document.getElementById('btn-her');
 const him = document.getElementById('btn-him');
+
+// form
+
+const sendForm = document.getElementById('form-wrapper');
+const contactName = document.getElementById('contact-name');
+const emailAddress = document.getElementById('email-address');
+const messageBody = document.getElementById('message-body');
+const errorMessage = document.getElementById('error-message');
+
+const errorContactName = document.querySelector('.form-container div:nth-child(2)');
+const errorEmailAddress = document.querySelector('.form-container div:nth-child(4)');
+const errorMessageBody = document.querySelector('.form-container div:nth-child(6)');
 
 
 // functions
@@ -183,10 +196,6 @@ arrowIcon.addEventListener('mouseout', () => {
 });
 
 
-
-
-
-
 // switch names
 
 her.addEventListener('click', () => {
@@ -221,3 +230,43 @@ btnPt.addEventListener('click', () => {
 });
 
 
+// form error messages
+
+sendForm.addEventListener('submit', (e) => {
+
+    let messages = [];
+
+
+    // message for name
+
+    if(contactName.value === '' || contactName.value == null ){
+
+        messages.push('Please fill out the name');
+        addClass(errorContactName, 'error-message-color');
+    }
+
+
+    // message for email
+
+    if(emailAddress === ''){
+        messages.push('Email cannot be blank.');
+
+    } else if(!isEmail(emailAddress.value)){
+        messages.push('Please enter a valid email.')
+        console.log('funca');
+
+    } else{
+        return
+    }
+
+    if(messages.length > 0){
+
+        errorMessage.textContent = messages.join(', ');
+        e.preventDefault();
+    }
+
+});
+
+function isEmail(email) {
+	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
