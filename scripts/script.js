@@ -170,7 +170,7 @@ secondPlusIcon.addEventListener('click', () => {
     
     nav1Sub.textContent = '';
     addClass(secondPlusIcon, 'hide');
-    replaceNavName(nav2Sub, nav2, 'contact', 'stroke');
+    replaceNavName(nav2Sub, nav2, 'thank you,', 'stroke');
     removeClass(arrowIcon, 'hide');
     removeClass(form, 'hide');
 
