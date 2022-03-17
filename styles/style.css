@@ -1,5 +1,6 @@
 :root{
     --orange: rgb(255, 98, 43);
+    --grey: rgb(0, 0, 0, .225);
 }
 
 @font-face{
@@ -30,7 +31,7 @@
 }
 
 html{
-    background-color: rgb(0, 0, 0, .225);
+    background-color: var(--grey);
 }
 
 body{
@@ -81,7 +82,7 @@ li{
 /* nav bar */
 
 h1 button, h2{
-    font-size: 9rem;
+    font-size: 8.5rem;
 }
 
 .stroke{
@@ -208,9 +209,35 @@ hr{
 }
 
 .error-message-color{
-    border: 2px solid var(--orange);
+    /* border: 2px solid var(--grey); */
+    background-color: var(--orange);
 }
 
 
+@media screen and (max-width: 1600px){
+
+    h1 button,
+    h2{
+        font-size: 7.5rem;
+    }
+    
+    .about-text p{
+        font-size: 5rem;    
+    }
+
+    .symbols{
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+
+@media screen and (max-width: 1315px){
+
+    h1 button,
+    h2{
+        font-size: 6.5rem;
+    }
+}
 
 

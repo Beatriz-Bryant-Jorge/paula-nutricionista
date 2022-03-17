@@ -1,9 +1,6 @@
-
-
 // objects
 
 const about = [
-
     {
         id: 1,
         lang: 'en',
@@ -14,11 +11,9 @@ const about = [
         lang: 'pt',
         text: 'A Inês e o Miguel formam uma equipa de arquitectos. Nasceram em Lisboa. Estudaram em Itália no Politecnico di Milano. São Mestres em Arquitectura pela Faculdade de Arquitectura da Universidade de Lisboa. Desenvolvem a sua prática em ateliers. Acreditam na indispensabilidade da Arquitectura.'
     }
-
 ];
 
 // booleans
-
 let isNameSwitched = false;
 
 // buttons
@@ -43,9 +38,6 @@ const aboutParagraph = aboutText.querySelector('p');
 const btnEn = document.getElementById('btn-en');
 const btnPt = document.getElementById('btn-pt');
 
-// form
-const form = document.querySelector('.form-container');
-
 // icons
 const plusOrange = 'images/icons-plus-orange.png';
 const plusBlack = 'images/icons-plus.png';
@@ -53,12 +45,11 @@ const arrowOrange = 'url(images/icons-arrow-orange.png)';
 const arrowBlack = 'url(images/icons-arrow.png)';
 
 // names
-
 const her = document.getElementById('btn-her');
 const him = document.getElementById('btn-him');
 
 // form
-
+const form = document.querySelector('.form-container');
 const sendForm = document.getElementById('form-wrapper');
 const contactName = document.getElementById('contact-name');
 const emailAddress = document.getElementById('email-address');
@@ -73,32 +64,25 @@ const errorMessageBody = document.querySelector('.form-container div:nth-child(6
 // functions
 
 function removeClass(object, property){
-
     object.classList.remove(property);
-
 };
 
 
 function addClass(object, property){
-
     object.classList.add(property);
-
 };
 
 
 function replaceNavName(newItem, oldItem, text, aClass){
-
     newItem.textContent = text;
     ul.replaceChild(newItem, oldItem);
     newItem.classList.add(aClass);
-
 };
 
 
 // switch names
 
 function switchNames(){
-
     if(!isNameSwitched){
         isNameSwitched = true;
         her.textContent = 'Miguel';
@@ -116,33 +100,27 @@ function switchNames(){
 // first button
 
 plusIcon.addEventListener('mouseover', () => {
-
     removeClass(nav1, 'hide');
     addClass(nav1, 'orange');
     plusIcon.src = plusOrange;
-
 });
 
 
 plusIcon.addEventListener('mouseout', () => {
-
     addClass(nav1, 'hide');
     removeClass(nav1, 'orange');
     plusIcon.src = plusBlack;
-
 });
 
 
 plusIcon.addEventListener('click', () => {
-
     addClass(nav1, 'stroke');
     addClass(plusIcon, 'hide');
     removeClass(aboutText, 'hide');
     removeClass(secondPlusIcon, 'hide');
 
     // remove the old about and create a new one to replace it
-    replaceNavName(nav1Sub, nav1, 'about', 'stroke');
-    
+    replaceNavName(nav1Sub, nav1, 'about', 'stroke'); 
 });
 
 
@@ -150,123 +128,135 @@ plusIcon.addEventListener('click', () => {
 // second button
 
 secondPlusIcon.addEventListener('mouseover', () => {
-
     addClass(nav1Sub, 'hide');
     removeClass(nav2, 'hide');
     addClass(nav2, 'orange');
     secondPlusIconImg.src = plusOrange;
-
 });
 
 secondPlusIcon.addEventListener('mouseout', () => {
-    
     addClass(nav2, 'hide');
     removeClass(nav1Sub, 'hide');
     secondPlusIconImg.src = plusBlack;
-
 });
 
 secondPlusIcon.addEventListener('click', () => {
-    
     nav1Sub.textContent = '';
     addClass(secondPlusIcon, 'hide');
     replaceNavName(nav2Sub, nav2, 'thank you,', 'stroke');
     removeClass(arrowIcon, 'hide');
     removeClass(form, 'hide');
-
 });
 
 // send form button
 
 arrowIcon.addEventListener('mouseover', () => {
-
     addClass(nav2Sub, 'hide');
     removeClass(nav3, 'hide');
     addClass(nav3, 'orange');
     arrowIcon.style.backgroundImage = arrowOrange;
-
 });
 
 arrowIcon.addEventListener('mouseout', () => {
-
     addClass(nav3, 'hide')
     removeClass(nav2Sub, 'hide');
     arrowIcon.style.backgroundImage = arrowBlack;
-
 });
 
 
 // switch names
 
 her.addEventListener('click', () => {
-
     switchNames();
-
 });
 
 him.addEventListener('click', () => {
-
     switchNames();
-
 });
 
 // switch languages
 
 btnEn.addEventListener('click', () => {
-
     aboutParagraph.textContent = about[0].text;
     addClass(btnEn, 'lang-bold');
     removeClass(btnPt, 'lang-bold');
-
 });
 
 
 btnPt.addEventListener('click', () => {
-
     aboutParagraph.textContent = about[1].text;
     removeClass(btnEn, 'lang-bold');
     addClass(btnPt, 'lang-bold');
-
 });
 
 
-// form error messages
 
+// checks for valid email
+function isEmail(email) {
+	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+// set a time for warning
+
+function warningErrorColor(element, className){
+    addClass(element, className);
+    setTimeout(() => {
+        removeClass(element, className);
+    }, 3000);
+};
+
+function warningErrorMessage(messageContent){
+    errorMessage.textContent = messageContent;
+    setTimeout(() => {
+        errorMessage.textContent = '';
+    }, 3000); 
+}
+
+// form error messages
 sendForm.addEventListener('submit', (e) => {
 
     let messages = [];
 
-
-    // message for name
-
+    // error message for name
     if(contactName.value === '' || contactName.value == null ){
-
-        messages.push('Please fill out the name');
-        addClass(errorContactName, 'error-message-color');
+        messages.push('Name required ');
+        warningErrorColor(errorContactName, 'error-message-color');
     }
 
-
-    // message for email
-
-    if(emailAddress === ''){
-        messages.push('Email cannot be blank.');
+    // error message for email
+    if(emailAddress.value === '' || emailAddress.value == null){
+        messages.push('Email cannot be empty ');
+        warningErrorColor(errorEmailAddress, 'error-message-color');
 
     } else if(!isEmail(emailAddress.value)){
-        messages.push('Please enter a valid email.')
-        console.log('funca');
-
-    } else{
-        return
+        messages.push('Enter a valid email');
+        warningErrorColor(errorEmailAddress, 'error-message-color');
     }
 
-    if(messages.length > 0){
+    // error message for message body
+    if(messageBody.value === '' || messageBody.value == null){
+        messages.push('Message cannot be empty ');
+        warningErrorColor(errorMessageBody, 'error-message-color');
 
-        errorMessage.textContent = messages.join(', ');
+    } else if(messageBody.value.length < 15){
+        messages.push('Message must be longer ');
+        warningErrorColor(errorMessageBody, 'error-message-color');
+    }
+
+
+    // writes error messages
+    if(messages.length == 1){
         e.preventDefault();
+        warningErrorMessage(messages[0]);
+
+    } else if(messages.length > 1){
+        e.preventDefault();
+        warningErrorMessage(messages.join('& '));
     }
+
+    contactName.value === '';
+    emailAddress.value === '';
+    messageBody.value === '';
 
 });
 
-function isEmail(email) {
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}
