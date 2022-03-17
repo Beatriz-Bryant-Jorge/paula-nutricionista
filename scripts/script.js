@@ -25,11 +25,10 @@ const arrowIcon = document.getElementById('form-submit');
 // nav bar
 const ul = document.querySelector('.list-wrapper');
 const nav1 = document.querySelector('.nav-names li:first-child');
-const nav1Sub = document.createElement('li');
 const nav2 = document.querySelector('.nav-names li:nth-child(2)');
-const nav2Sub = document.createElement('li');
 const nav3 = document.querySelector('.nav-names li:nth-child(3)');
-const nav3Sub = document.createElement('li');
+const nav4 = document.querySelector('.nav-names li:nth-child(4)');
+const navSub = document.createElement('li');
 const nameHer = document.querySelector('.name-her');
 
 // text
@@ -98,7 +97,6 @@ function switchNames(){
 
 
 // first button
-
 plusIcon.addEventListener('mouseover', () => {
     removeClass(nav1, 'hide');
     addClass(nav1, 'orange');
@@ -120,15 +118,14 @@ plusIcon.addEventListener('click', () => {
     removeClass(secondPlusIcon, 'hide');
 
     // remove the old about and create a new one to replace it
-    replaceNavName(nav1Sub, nav1, 'about', 'stroke'); 
+    replaceNavName(navSub, nav1, 'about', 'stroke'); 
 });
 
 
 
 // second button
-
 secondPlusIcon.addEventListener('mouseover', () => {
-    addClass(nav1Sub, 'hide');
+    addClass(navSub, 'hide');
     removeClass(nav2, 'hide');
     addClass(nav2, 'orange');
     secondPlusIconImg.src = plusOrange;
@@ -136,22 +133,20 @@ secondPlusIcon.addEventListener('mouseover', () => {
 
 secondPlusIcon.addEventListener('mouseout', () => {
     addClass(nav2, 'hide');
-    removeClass(nav1Sub, 'hide');
+    removeClass(navSub, 'hide');
     secondPlusIconImg.src = plusBlack;
 });
 
 secondPlusIcon.addEventListener('click', () => {
-    nav1Sub.textContent = '';
     addClass(secondPlusIcon, 'hide');
-    replaceNavName(nav2Sub, nav2, 'thank you,', 'stroke');
+    replaceNavName(navSub, nav2, 'send to', 'stroke');
     removeClass(arrowIcon, 'hide');
     removeClass(form, 'hide');
 });
 
 // send form button
-
 arrowIcon.addEventListener('mouseover', () => {
-    addClass(nav2Sub, 'hide');
+    addClass(navSub, 'hide');
     removeClass(nav3, 'hide');
     addClass(nav3, 'orange');
     arrowIcon.style.backgroundImage = arrowOrange;
@@ -159,13 +154,12 @@ arrowIcon.addEventListener('mouseover', () => {
 
 arrowIcon.addEventListener('mouseout', () => {
     addClass(nav3, 'hide')
-    removeClass(nav2Sub, 'hide');
+    removeClass(navSub, 'hide');
     arrowIcon.style.backgroundImage = arrowBlack;
 });
 
 
 // switch names
-
 her.addEventListener('click', () => {
     switchNames();
 });
@@ -175,7 +169,6 @@ him.addEventListener('click', () => {
 });
 
 // switch languages
-
 btnEn.addEventListener('click', () => {
     aboutParagraph.textContent = about[0].text;
     addClass(btnEn, 'lang-bold');
@@ -212,28 +205,36 @@ function warningErrorMessage(messageContent){
     }, 3000); 
 }
 
+function clearFormInputs(){
+    contactName.value === '';
+    emailAddress.value === '';
+    messageBody.value === '';
+}
+
+let isFormValid = false;
+
 // form error messages
 sendForm.addEventListener('submit', (e) => {
 
     let messages = [];
 
-    // error message for name
+    // defines error message for name
     if(contactName.value === '' || contactName.value == null ){
         messages.push('Name required ');
         warningErrorColor(errorContactName, 'error-message-color');
     }
 
-    // error message for email
+    // defines error message for email
     if(emailAddress.value === '' || emailAddress.value == null){
         messages.push('Email cannot be empty ');
         warningErrorColor(errorEmailAddress, 'error-message-color');
 
     } else if(!isEmail(emailAddress.value)){
-        messages.push('Enter a valid email');
+        messages.push('Enter a valid email ');
         warningErrorColor(errorEmailAddress, 'error-message-color');
     }
 
-    // error message for message body
+    // defines error message for message body
     if(messageBody.value === '' || messageBody.value == null){
         messages.push('Message cannot be empty ');
         warningErrorColor(errorMessageBody, 'error-message-color');
@@ -246,17 +247,27 @@ sendForm.addEventListener('submit', (e) => {
 
     // writes error messages
     if(messages.length == 1){
+        clearFormInputs();
         e.preventDefault();
+        isFormValid = false;
         warningErrorMessage(messages[0]);
 
     } else if(messages.length > 1){
+        clearFormInputs();
         e.preventDefault();
+        isFormValid = false;
         warningErrorMessage(messages.join('& '));
+    } else{
+        isFormValid = true;
     }
 
-    contactName.value === '';
-    emailAddress.value === '';
-    messageBody.value === '';
+    if(isFormValid){
+        form.remove();
+        addClass(nav3, 'hide');
+        removeClass(nav4, 'hide');
+        addClass(nav4, 'stroke');
+    }
 
 });
+
 
