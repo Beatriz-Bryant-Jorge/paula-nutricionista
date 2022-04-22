@@ -255,13 +255,14 @@ sendForm.addEventListener('submit', (e) => {
         e.preventDefault();
         isFormValid = false;
         warningErrorMessage(messages[0]);
-        clearFormInputs();
+        console.log(messageBody.value);
         
     } else if(messages.length > 1){
         e.preventDefault();
         isFormValid = false;
         warningErrorMessage(messages.join('& '));
-        clearFormInputs();
+        // clearFormInputs();
+        console.log(messageBody.value, emailAddress.value, contactName.value);
 
     } else{
         isFormValid = true;
@@ -272,8 +273,10 @@ sendForm.addEventListener('submit', (e) => {
         addClass(nav3, 'hide');
         removeClass(nav4, 'hide');
         addClass(nav4, 'stroke');
+    } else{
+        clearFormInputs();
+        console.log('ERRO'); 
     }
-
 });
 
 
