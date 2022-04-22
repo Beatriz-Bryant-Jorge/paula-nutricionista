@@ -206,9 +206,9 @@ function warningErrorMessage(messageContent){
 }
 
 function clearFormInputs(){
-    contactName.value === '';
-    emailAddress.value === '';
-    messageBody.value === '';
+    contactName.value == 'ERROR';
+    emailAddress.value == 'ERROR';
+    messageBody.value == 'ERROR';
 }
 
 let isFormValid = false;
@@ -219,26 +219,31 @@ sendForm.addEventListener('submit', (e) => {
     let messages = [];
 
     // defines error message for name
+    //IF checks if input is empty
     if(contactName.value === '' || contactName.value == null ){
         messages.push('Name required ');
         warningErrorColor(errorContactName, 'error-message-color');
     }
 
     // defines error message for email
+    //IF checks if input is empty
     if(emailAddress.value === '' || emailAddress.value == null){
         messages.push('Email cannot be empty ');
         warningErrorColor(errorEmailAddress, 'error-message-color');
 
+    //ELSE IF checks is input is a valid email
     } else if(!isEmail(emailAddress.value)){
         messages.push('Enter a valid email ');
         warningErrorColor(errorEmailAddress, 'error-message-color');
     }
 
     // defines error message for message body
+    // IF checks if input is empty
     if(messageBody.value === '' || messageBody.value == null){
         messages.push('Message cannot be empty ');
         warningErrorColor(errorMessageBody, 'error-message-color');
 
+    //ELSE IF checks is input has less than 15 char
     } else if(messageBody.value.length < 15){
         messages.push('Message must be longer ');
         warningErrorColor(errorMessageBody, 'error-message-color');
@@ -247,16 +252,17 @@ sendForm.addEventListener('submit', (e) => {
 
     // writes error messages
     if(messages.length == 1){
-        clearFormInputs();
         e.preventDefault();
         isFormValid = false;
         warningErrorMessage(messages[0]);
-
-    } else if(messages.length > 1){
         clearFormInputs();
+        
+    } else if(messages.length > 1){
         e.preventDefault();
         isFormValid = false;
         warningErrorMessage(messages.join('& '));
+        clearFormInputs();
+
     } else{
         isFormValid = true;
     }
