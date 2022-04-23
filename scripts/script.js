@@ -289,10 +289,9 @@ sendForm.addEventListener('submit', (e) => {
         form.remove();
         addClass(nav3, 'hide');
         removeClass(nav4, 'hide');
-        addClass(nav4, 'stroke');
-        
+        addClass(nav4, 'stroke');  
     }
-
+    
 });
 
 
