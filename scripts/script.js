@@ -287,9 +287,12 @@ sendForm.addEventListener('submit', (e) => {
     // sends validated form
     if(isFormValid){
         form.remove();
-        addClass(nav3, 'hide');
-        removeClass(nav4, 'hide');
-        addClass(nav4, 'stroke');
+        setTimeout(() => {
+            addClass(nav3, 'hide');
+            removeClass(nav4, 'hide');
+            addClass(nav4, 'stroke');
+        }, 3000); 
+        
     }
 
 });
