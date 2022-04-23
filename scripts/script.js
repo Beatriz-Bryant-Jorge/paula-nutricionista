@@ -207,11 +207,11 @@ function warningErrorMessage(messageContent){
     }, 3000); 
 }
 
-function clearFormInputs(){
-    contactName.value = '';
-    emailAddress.value = '';
-    messageBody.value = '';
-}
+// function clearFormInputs(){
+//     contactName.value = '';
+//     emailAddress.value = '';
+//     messageBody.value = '';
+// }
 
 let isFormValid = false;
 
@@ -287,11 +287,9 @@ sendForm.addEventListener('submit', (e) => {
     // sends validated form
     if(isFormValid){
         form.remove();
-        setTimeout(() => {
-            addClass(nav3, 'hide');
-            removeClass(nav4, 'hide');
-            addClass(nav4, 'stroke');
-        }, 3000); 
+        addClass(nav3, 'hide');
+        removeClass(nav4, 'hide');
+        addClass(nav4, 'stroke');
         
     }
 
