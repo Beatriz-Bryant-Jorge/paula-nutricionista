@@ -37,7 +37,7 @@ html{
 body{
     display: grid;
     grid-template-columns: auto 1fr auto;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 40% 0 repeat(2, auto);
     align-items: start;
     margin: 2vw 2.5vw 1.5vw;
     height: calc(100vh - 3.5vw);
@@ -115,7 +115,7 @@ header, h1, #nav-bar, .list-wrapper, .nav-names, .nav-symbols, .nav-symbols li{
 }
 
 .name-him{
-    grid-row: 3;
+    grid-row: 4;
     grid-column: 3;
     justify-self: end;
     align-self: end;
@@ -141,7 +141,7 @@ header, h1, #nav-bar, .list-wrapper, .nav-names, .nav-symbols, .nav-symbols li{
 
 #second-plus-btn{
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 4;
     align-self: end;
     justify-self: start;
     margin-bottom: 1rem;
@@ -149,10 +149,17 @@ header, h1, #nav-bar, .list-wrapper, .nav-names, .nav-symbols, .nav-symbols li{
 
 #error-message{
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 2;
     align-self: end;
-    margin-bottom: 2rem;
+    font-size: 0.75rem;
+    max-width: 30rem;
+    padding: 10px;
+    /* margin-bottom: 2rem; */
+    /* margin-left: 10px; */
+    /* background-color: var(--orange); */
 }
+    
+
 
 /* form */
 #form-wrapper{
@@ -161,7 +168,7 @@ header, h1, #nav-bar, .list-wrapper, .nav-names, .nav-symbols, .nav-symbols li{
 
 .form-container{
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 3;
     width: 30rem;
 }
 
@@ -204,7 +211,7 @@ input[type="submit"]{
     height: 8rem;
     align-self: end;
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 4;
     margin-bottom: 1rem;
 }
 
@@ -229,10 +236,10 @@ hr{
         font-size: 5rem;    
     } */
 
-    .symbols{
+    /* .symbols{
         width: 5rem;
-        /* height: 5rem; */
-    }
+        height: 5rem;
+    } */
 }
 
 

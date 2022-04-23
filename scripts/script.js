@@ -200,15 +200,17 @@ function warningErrorColor(element, className){
 
 function warningErrorMessage(messageContent){
     errorMessage.textContent = messageContent;
+    errorMessage.style.backgroundColor = 'var(--orange)';
     setTimeout(() => {
         errorMessage.textContent = '';
+        errorMessage.style.backgroundColor = 'transparent';
     }, 3000); 
 }
 
 function clearFormInputs(){
-    contactName.value == 'ERROR';
-    emailAddress.value == 'ERROR';
-    messageBody.value == 'ERROR';
+    contactName.value = '';
+    emailAddress.value = '';
+    messageBody.value = '';
 }
 
 let isFormValid = false;
@@ -219,34 +221,37 @@ sendForm.addEventListener('submit', (e) => {
     let messages = [];
 
     // defines error message for name
+
     //IF checks if input is empty
     if(contactName.value === '' || contactName.value == null ){
         messages.push('Name required ');
-        warningErrorColor(errorContactName, 'error-message-color');
+        // warningErrorColor(errorContactName, 'error-message-color');
     }
 
     // defines error message for email
+
     //IF checks if input is empty
     if(emailAddress.value === '' || emailAddress.value == null){
         messages.push('Email cannot be empty ');
-        warningErrorColor(errorEmailAddress, 'error-message-color');
+        // warningErrorColor(errorEmailAddress, 'error-message-color');
 
     //ELSE IF checks is input is a valid email
     } else if(!isEmail(emailAddress.value)){
         messages.push('Enter a valid email ');
-        warningErrorColor(errorEmailAddress, 'error-message-color');
+        // warningErrorColor(errorEmailAddress, 'error-message-color');
     }
 
     // defines error message for message body
+
     // IF checks if input is empty
     if(messageBody.value === '' || messageBody.value == null){
         messages.push('Message cannot be empty ');
-        warningErrorColor(errorMessageBody, 'error-message-color');
+        // warningErrorColor(errorMessageBody, 'error-message-color');
 
     //ELSE IF checks is input has less than 15 char
     } else if(messageBody.value.length < 15){
         messages.push('Message must be longer ');
-        warningErrorColor(errorMessageBody, 'error-message-color');
+        // warningErrorColor(errorMessageBody, 'error-message-color');
     }
 
 
@@ -255,28 +260,38 @@ sendForm.addEventListener('submit', (e) => {
         e.preventDefault();
         isFormValid = false;
         warningErrorMessage(messages[0]);
-        console.log(messageBody.value);
+
         
     } else if(messages.length > 1){
         e.preventDefault();
         isFormValid = false;
         warningErrorMessage(messages.join('& '));
-        // clearFormInputs();
-        console.log(messageBody.value, emailAddress.value, contactName.value);
 
     } else{
         isFormValid = true;
     }
 
+    // deletes wrong inputs
+    if(errorMessageBody.classList.contains('error-message-color')){
+        messageBody.value = '';
+    } 
+    
+    if(errorContactName.classList.contains('error-message-color')){
+        contactName.value = '';
+    } 
+    
+    if(errorEmailAddress.classList.contains('error-message-color')){
+        emailAddress.value = '';
+    }
+
+    // sends validated form
     if(isFormValid){
         form.remove();
         addClass(nav3, 'hide');
         removeClass(nav4, 'hide');
         addClass(nav4, 'stroke');
-    } else{
-        clearFormInputs();
-        console.log('ERRO'); 
     }
+
 });
 
 
