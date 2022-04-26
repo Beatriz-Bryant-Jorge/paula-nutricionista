@@ -106,7 +106,7 @@ const minIpadWidth = 670;
 // 700 --> 1120 = ipad
 // > 1120 = desktop
 
-function firstPlusIconRepeatedCode(){
+function firstPlusIconClickRepeatedCode(){
     addClass(nav1, 'stroke');
     addClass(plusIcon, 'hide');
     removeClass(aboutText, 'hide');
@@ -129,64 +129,96 @@ if(innerWidth >= minDesktopWidth){
     });
     
     plusIcon.addEventListener('click', () => {
-        firstPlusIconRepeatedCode();
+        firstPlusIconClickRepeatedCode();
     });
 
 } else if (innerWidth <= minDesktopWidth && innerWidth >= minIpadWidth){
     // screen size IPAD
     plusIcon.addEventListener('click', () => {
-        firstPlusIconRepeatedCode();
         addClass(nameHer, 'name-her-below'); //the only difference to the desktop size
+        firstPlusIconClickRepeatedCode();
     });
 }
 else{
     // screen size MOBILE
     plusIcon.addEventListener('click', () => {
-        firstPlusIconRepeatedCode();
         addClass(nameHer, 'name-her-below'); //the only difference to the desktop size
         addClass(aboutText, 'about-text-mobile');//the only difference to the desktop size
-
+        firstPlusIconClickRepeatedCode();
     });
-
 }
 
 
 // SECOND + BUTTON
 
-secondPlusIcon.addEventListener('mouseover', () => {
-    addClass(navSub, 'hide');
-    removeClass(nav2, 'hide');
-    addClass(nav2, 'orange');
-    secondPlusIconImg.src = plusOrange;
-});
+// 0 --> 700 = phone
+// 700 --> 1120 = ipad
+// > 1120 = desktop
 
-secondPlusIcon.addEventListener('mouseout', () => {
-    addClass(nav2, 'hide');
-    removeClass(navSub, 'hide');
-    secondPlusIconImg.src = plusBlack;
-});
-
-
-secondPlusIcon.addEventListener('click', () => {
+function secondPlusIconClickRepeatedCode(){
     addClass(secondPlusIcon, 'hide');
-    replaceNavName(navSub, nav2, 'send to', 'stroke');
+    replaceNavName(navSub, nav2, 'contact', 'stroke');
     removeClass(arrowIcon, 'hide');
     removeClass(form, 'hide');
-});
+}
+
+if(innerWidth >= minDesktopWidth){
+    // screen size DESKTOP
+    secondPlusIcon.addEventListener('mouseover', () => {
+        addClass(navSub, 'hide');
+        removeClass(nav2, 'hide');
+        addClass(nav2, 'orange');
+        secondPlusIconImg.src = plusOrange;
+    });
+    
+    secondPlusIcon.addEventListener('mouseout', () => {
+        addClass(nav2, 'hide');
+        removeClass(navSub, 'hide');
+        secondPlusIconImg.src = plusBlack;
+    });
+    
+    secondPlusIcon.addEventListener('click', () => {
+        secondPlusIconClickRepeatedCode();
+    });
+
+} else if(innerWidth <= minDesktopWidth && innerWidth >= minIpadWidth){
+    secondPlusIcon.addEventListener('click', () => {
+        secondPlusIconClickRepeatedCode();
+    });
+}
+else{
+    // screen size MOBILE
+    secondPlusIcon.addEventListener('click', () => {
+        addClass(secondPlusIcon, 'hide');
+        replaceNavName(navSub, nav2, 'contact', 'stroke');
+        addClass(aboutText, 'hide');
+        removeClass(form, 'hide');
+        removeClass(arrowIcon, 'hide');
+    });
+}
+
+
+
+
+
+
+
+
+
 
 // send form button
-arrowIcon.addEventListener('mouseover', () => {
-    addClass(navSub, 'hide');
-    removeClass(nav3, 'hide');
-    addClass(nav3, 'orange');
-    arrowIcon.style.backgroundImage = arrowOrange;
-});
+// arrowIcon.addEventListener('mouseover', () => {
+//     addClass(navSub, 'hide');
+//     removeClass(nav3, 'hide');
+//     addClass(nav3, 'orange');
+//     arrowIcon.style.backgroundImage = arrowOrange;
+// });
 
-arrowIcon.addEventListener('mouseout', () => {
-    addClass(nav3, 'hide')
-    removeClass(navSub, 'hide');
-    arrowIcon.style.backgroundImage = arrowBlack;
-});
+// arrowIcon.addEventListener('mouseout', () => {
+//     addClass(nav3, 'hide')
+//     removeClass(navSub, 'hide');
+//     arrowIcon.style.backgroundImage = arrowBlack;
+// });
 
 
 // switch names
