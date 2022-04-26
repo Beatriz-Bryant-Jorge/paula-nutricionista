@@ -96,19 +96,26 @@ function switchNames(){
 
 
 
-// first '+' button
+// FIRST + BUTTON
 
 let innerWidth = window.innerWidth;
-
 const minDesktopWidth = 1120;
-const minIpadWidth = 700;
+const minIpadWidth = 670;
 
 // 0 --> 700 = phone
 // 700 --> 1120 = ipad
 // > 1120 = desktop
 
+function firstPlusIconRepeatedCode(){
+    addClass(nav1, 'stroke');
+    addClass(plusIcon, 'hide');
+    removeClass(aboutText, 'hide');
+    removeClass(secondPlusIcon, 'hide');
+    replaceNavName(navSub, nav1, 'about', 'stroke'); 
+}
+
 if(innerWidth >= minDesktopWidth){
-    // isto é DESKTOP
+    // screen size DESKTOP
     plusIcon.addEventListener('mouseover', () => {
         removeClass(nav1, 'hide');
         addClass(nav1, 'orange');
@@ -122,34 +129,30 @@ if(innerWidth >= minDesktopWidth){
     });
     
     plusIcon.addEventListener('click', () => {
-        addClass(nav1, 'stroke');
-        addClass(plusIcon, 'hide');
-        removeClass(aboutText, 'hide');
-        removeClass(secondPlusIcon, 'hide');
-    
-        // removes the old about and create a new one to replace it
-        replaceNavName(navSub, nav1, 'about', 'stroke'); 
+        firstPlusIconRepeatedCode();
     });
 
 } else if (innerWidth <= minDesktopWidth && innerWidth >= minIpadWidth){
-    // isto é IPAD
+    // screen size IPAD
     plusIcon.addEventListener('click', () => {
-        addClass(nameHer, 'name-her-below');
-        addClass(nav1, 'stroke');
-        addClass(plusIcon, 'hide');
-        removeClass(aboutText, 'hide');
-        removeClass(secondPlusIcon, 'hide');
-        // removes the old about and create a new one to replace it
-        replaceNavName(navSub, nav1, 'about', 'stroke'); 
+        firstPlusIconRepeatedCode();
+        addClass(nameHer, 'name-her-below'); //the only difference to the desktop size
     });
 }
 else{
-    // isto é PHONE
+    // screen size MOBILE
+    plusIcon.addEventListener('click', () => {
+        firstPlusIconRepeatedCode();
+        addClass(nameHer, 'name-her-below'); //the only difference to the desktop size
+        addClass(aboutText, 'about-text-mobile');//the only difference to the desktop size
+
+    });
 
 }
 
 
-// second button
+// SECOND + BUTTON
+
 secondPlusIcon.addEventListener('mouseover', () => {
     addClass(navSub, 'hide');
     removeClass(nav2, 'hide');
