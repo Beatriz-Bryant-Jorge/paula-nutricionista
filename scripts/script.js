@@ -1,5 +1,5 @@
-// objects
 
+// objects
 const about = [
     {
         id: 1,
@@ -96,31 +96,57 @@ function switchNames(){
 
 
 
-// first button
-plusIcon.addEventListener('mouseover', () => {
-    removeClass(nav1, 'hide');
-    addClass(nav1, 'orange');
-    plusIcon.src = plusOrange;
-});
+// first '+' button
 
+let innerWidth = window.innerWidth;
 
-plusIcon.addEventListener('mouseout', () => {
-    addClass(nav1, 'hide');
-    removeClass(nav1, 'orange');
-    plusIcon.src = plusBlack;
-});
+const minDesktopWidth = 1120;
+const minIpadWidth = 700;
 
+// 0 --> 700 = phone
+// 700 --> 1120 = ipad
+// > 1120 = desktop
 
-plusIcon.addEventListener('click', () => {
-    addClass(nav1, 'stroke');
-    addClass(plusIcon, 'hide');
-    removeClass(aboutText, 'hide');
-    removeClass(secondPlusIcon, 'hide');
+if(innerWidth >= minDesktopWidth){
+    // isto é DESKTOP
+    plusIcon.addEventListener('mouseover', () => {
+        removeClass(nav1, 'hide');
+        addClass(nav1, 'orange');
+        plusIcon.src = plusOrange;
+    });
+    
+    plusIcon.addEventListener('mouseout', () => {
+        addClass(nav1, 'hide');
+        removeClass(nav1, 'orange');
+        plusIcon.src = plusBlack;
+    });
+    
+    plusIcon.addEventListener('click', () => {
+        addClass(nav1, 'stroke');
+        addClass(plusIcon, 'hide');
+        removeClass(aboutText, 'hide');
+        removeClass(secondPlusIcon, 'hide');
+    
+        // removes the old about and create a new one to replace it
+        replaceNavName(navSub, nav1, 'about', 'stroke'); 
+    });
 
-    // remove the old about and create a new one to replace it
-    replaceNavName(navSub, nav1, 'about', 'stroke'); 
-});
+} else if (innerWidth <= minDesktopWidth && innerWidth >= minIpadWidth){
+    // isto é IPAD
+    plusIcon.addEventListener('click', () => {
+        addClass(nameHer, 'name-her-below');
+        addClass(nav1, 'stroke');
+        addClass(plusIcon, 'hide');
+        removeClass(aboutText, 'hide');
+        removeClass(secondPlusIcon, 'hide');
+        // removes the old about and create a new one to replace it
+        replaceNavName(navSub, nav1, 'about', 'stroke'); 
+    });
+}
+else{
+    // isto é PHONE
 
+}
 
 
 // second button
@@ -136,6 +162,7 @@ secondPlusIcon.addEventListener('mouseout', () => {
     removeClass(navSub, 'hide');
     secondPlusIconImg.src = plusBlack;
 });
+
 
 secondPlusIcon.addEventListener('click', () => {
     addClass(secondPlusIcon, 'hide');
