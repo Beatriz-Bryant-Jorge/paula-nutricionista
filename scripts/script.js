@@ -21,6 +21,7 @@ const plusIcon = document.querySelector('#first-plus-btn img');
 const secondPlusIcon = document.querySelector('#second-plus-btn');
 const secondPlusIconImg = secondPlusIcon.querySelector('img');
 const arrowIcon = document.getElementById('form-submit');
+const arrowImg = document.getElementById('form-arrow');
 
 // nav bar
 const ul = document.querySelector('.list-wrapper');
@@ -40,8 +41,8 @@ const btnPt = document.getElementById('btn-pt');
 // icons
 const plusOrange = 'images/icons-plus-orange.png';
 const plusBlack = 'images/icons-plus.png';
-const arrowOrange = 'url(images/icons-arrow-orange.png)';
-const arrowBlack = 'url(images/icons-arrow.png)';
+const arrowOrange = 'images/icons-arrow-orange.png';
+const arrowBlack = 'images/icons-arrow.png';
 
 // names
 const her = document.getElementById('btn-her');
@@ -60,7 +61,9 @@ const errorEmailAddress = document.querySelector('.form-container div:nth-child(
 const errorMessageBody = document.querySelector('.form-container div:nth-child(6)');
 
 
-// functions
+// -------------------------------------------
+// BASIC FUNCTIONS
+// -------------------------------------------
 
 function removeClass(object, property){
     object.classList.remove(property);
@@ -79,7 +82,9 @@ function replaceNavName(newItem, oldItem, text, aClass){
 };
 
 
-// switch names
+// -------------------------------------------
+// SWITCH NAMES
+// -------------------------------------------
 
 function switchNames(){
     if(!isNameSwitched){
@@ -94,17 +99,27 @@ function switchNames(){
     }
 };
 
+her.addEventListener('click', () => {
+    switchNames();
+});
+
+him.addEventListener('click', () => {
+    switchNames();
+});
 
 
-// FIRST + BUTTON
 
-let innerWidth = window.innerWidth;
-const minDesktopWidth = 1120;
-const minIpadWidth = 670;
+// -------------------------------------------
+// FIRST ' + ' BUTTON
+// -------------------------------------------
 
 // 0 --> 700 = phone
 // 700 --> 1120 = ipad
 // > 1120 = desktop
+
+let innerWidth = window.innerWidth;
+const minDesktopWidth = 1050;
+const minIpadWidth = 670;
 
 function firstPlusIconClickRepeatedCode(){
     addClass(nav1, 'stroke');
@@ -149,7 +164,9 @@ else{
 }
 
 
-// SECOND + BUTTON
+// -------------------------------------------
+// SECOND ' + ' BUTTON
+// -------------------------------------------
 
 // 0 --> 700 = phone
 // 700 --> 1120 = ipad
@@ -182,6 +199,7 @@ if(innerWidth >= minDesktopWidth){
     });
 
 } else if(innerWidth <= minDesktopWidth && innerWidth >= minIpadWidth){
+    // screen size IPAD
     secondPlusIcon.addEventListener('click', () => {
         secondPlusIconClickRepeatedCode();
     });
@@ -189,48 +207,42 @@ if(innerWidth >= minDesktopWidth){
 else{
     // screen size MOBILE
     secondPlusIcon.addEventListener('click', () => {
-        addClass(secondPlusIcon, 'hide');
-        replaceNavName(navSub, nav2, 'contact', 'stroke');
+        secondPlusIconClickRepeatedCode();
         addClass(aboutText, 'hide');
-        removeClass(form, 'hide');
-        removeClass(arrowIcon, 'hide');
     });
 }
 
 
 
+// -------------------------------------------
+// SEND FORM BUTTON MOUSEOVER FOR DESKTOP
+// -------------------------------------------
+
+// > 1120 = desktop
+
+
+if(innerWidth >= minDesktopWidth){
+    // screen size DESKTOP
+    arrowIcon.addEventListener('mouseover', () => {
+        addClass(navSub, 'hide');
+        removeClass(nav3, 'hide');
+        addClass(nav3, 'orange');
+        arrowImg.src = arrowOrange;
+    });
+
+    arrowIcon.addEventListener('mouseout', () => {
+        addClass(nav3, 'hide')
+        removeClass(navSub, 'hide');
+        arrowImg.src = arrowBlack;
+    });
+}
 
 
 
+// -------------------------------------------
+// SWITCH LANGUAGES
+// -------------------------------------------
 
-
-
-
-// send form button
-// arrowIcon.addEventListener('mouseover', () => {
-//     addClass(navSub, 'hide');
-//     removeClass(nav3, 'hide');
-//     addClass(nav3, 'orange');
-//     arrowIcon.style.backgroundImage = arrowOrange;
-// });
-
-// arrowIcon.addEventListener('mouseout', () => {
-//     addClass(nav3, 'hide')
-//     removeClass(navSub, 'hide');
-//     arrowIcon.style.backgroundImage = arrowBlack;
-// });
-
-
-// switch names
-her.addEventListener('click', () => {
-    switchNames();
-});
-
-him.addEventListener('click', () => {
-    switchNames();
-});
-
-// switch languages
 btnEn.addEventListener('click', () => {
     aboutParagraph.textContent = about[0].text;
     addClass(btnEn, 'lang-bold');
@@ -246,12 +258,19 @@ btnPt.addEventListener('click', () => {
 
 
 
-// checks for valid email
+// -------------------------------------------
+// CHECKS FOR VALID EMAIL
+// -------------------------------------------
+
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 
-// set a time for warning
+
+
+// -------------------------------------------
+// SETS A TIMER FOR WARNING MESSAGE
+// -------------------------------------------
 
 function warningErrorColor(element, className){
     addClass(element, className);
@@ -269,48 +288,45 @@ function warningErrorMessage(messageContent){
     }, 3000); 
 }
 
-// function clearFormInputs(){
-//     contactName.value = '';
-//     emailAddress.value = '';
-//     messageBody.value = '';
-// }
+
+
+// -------------------------------------------
+// FORM VALIDATION
+// -------------------------------------------
+
 
 let isFormValid = false;
 
-// form error messages
 sendForm.addEventListener('submit', (e) => {
 
     let messages = [];
 
     // defines error message for name
-
-    //IF checks if input is empty
+    // IF checks if input is empty
     if(contactName.value === '' || contactName.value == null ){
         messages.push('Name required ');
         // warningErrorColor(errorContactName, 'error-message-color');
     }
 
     // defines error message for email
-
-    //IF checks if input is empty
+    // IF checks if input is empty
     if(emailAddress.value === '' || emailAddress.value == null){
         messages.push('Email cannot be empty ');
         // warningErrorColor(errorEmailAddress, 'error-message-color');
 
-    //ELSE IF checks is input is a valid email
+    // ELSE IF checks is input is a valid email
     } else if(!isEmail(emailAddress.value)){
         messages.push('Enter a valid email ');
         // warningErrorColor(errorEmailAddress, 'error-message-color');
     }
 
     // defines error message for message body
-
     // IF checks if input is empty
     if(messageBody.value === '' || messageBody.value == null){
         messages.push('Message cannot be empty ');
         // warningErrorColor(errorMessageBody, 'error-message-color');
 
-    //ELSE IF checks is input has less than 15 char
+    // ELSE IF checks is input has less than 15 char
     } else if(messageBody.value.length < 15){
         messages.push('Message must be longer ');
         // warningErrorColor(errorMessageBody, 'error-message-color');
@@ -333,7 +349,7 @@ sendForm.addEventListener('submit', (e) => {
         isFormValid = true;
     }
 
-    // deletes wrong inputs
+    // deletes not valid inputs
     if(errorMessageBody.classList.contains('error-message-color')){
         messageBody.value = '';
     } 

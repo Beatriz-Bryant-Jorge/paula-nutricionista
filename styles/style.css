@@ -39,8 +39,8 @@ body{
     grid-template-columns: auto 1fr auto;
     grid-template-rows: 40% 0 repeat(2, auto);
     align-items: start;
-    margin: 2vw 2.5vw 1.5vw;
-    height: calc(100vh - 3.5vw);
+    margin: 1.5vw 1.5vw 1vw;
+    height: calc(100vh - 2.5vw);
 }
 
 hr{
@@ -139,6 +139,7 @@ header, h1, #nav-bar, .list-wrapper, .nav-names, .nav-symbols, .nav-symbols li{
     grid-column: 3;
     justify-self: end;
     max-width: 25rem;
+    margin-top: 1rem;
 }
 
 .about-text-mobile{
@@ -170,7 +171,6 @@ header, h1, #nav-bar, .list-wrapper, .nav-names, .nav-symbols, .nav-symbols li{
     /* margin-left: 10px; */
     /* background-color: var(--orange); */
 }
-    
 
 
 /* form */
@@ -213,14 +213,8 @@ textarea{
     resize: none;
 }
 
-input[type="submit"]{
-    /* background: #fff url("../images/icons-arrow.png") no-repeat right top; */
-    background-color: transparent;
-    background-image: url("../images/icons-arrow.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 8rem;
-    height: 8rem;
+button[type="submit"]{
+    width: 7.25rem;
     align-self: end;
     grid-column: 1;
     grid-row: 4;
@@ -245,6 +239,14 @@ hr{
     h2{
         font-size: 7.85rem;
     }
+
+    .nav-symbols button,
+    #second-plus-btn,
+    button[type="submit"]{
+        width: 6.65rem;
+        margin-bottom: .5rem;
+    }
+
 }
 
 @media screen and (max-width: 1330px){
@@ -265,11 +267,34 @@ hr{
     .about-text p{
         font-size: 0.9rem;
     }
+
+    .nav-symbols button,
+    #second-plus-btn,
+    button[type="submit"]{
+        width: 6rem;
+        margin-bottom: .4rem;
+    }
+
+
+}
+
+@media screen and (max-width: 1200px){
+
+    .about-text p{
+        font-size: 0.85rem;
+        max-width: 20rem;
+    }
+
 }
 
 
 @media screen and (max-width: 900px){
 
+    body{
+        margin: 2.5vw 2.5vw 2vw;
+        height: calc(100vh - 4.5vw);
+    }
+    
     .nav-names li{
         margin-right: 5rem;
     }
@@ -282,14 +307,25 @@ hr{
     h2{
         font-size: 6.5rem;
     }
+
+    .nav-symbols button,
+    #second-plus-btn,
+    button[type="submit"]{
+        width: 5.6rem;
+        margin-bottom: .5rem;
+    }
 }
 
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 750px){
 
     .about-text-mobile p{
         font-size: 1.25rem;
     }
+
+    .form-container {
+        width: 22rem;
+      }
 }
 
 @media screen and (max-width: 480px){
@@ -322,7 +358,7 @@ hr{
     } */
 
     .nav-symbols button,
-    input[type="submit"]{
+    button[type="submit"]{
         width: 3.15rem;
     }
 
