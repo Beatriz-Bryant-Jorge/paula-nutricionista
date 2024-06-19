@@ -1,70 +1,39 @@
 <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=devide=width, initial-scale=1.0">
-            <title>Inês e Miguel</title>
-            <link rel="shortcut icon" type="image/png" href="images/icons-plus-orange.png">
-            <link rel="stylesheet" type="text/css" href="styles/style.css">
-            <script src="scripts/script.js" defer></script>
-        </head>
-        <body>
-            <header>
-                <h1>
-                    <span class="name-her"><button id="btn-her">Inês</button></span>
-                    <span class="name-him"><button id="btn-him">e Miguel</button></span>
-                </h1>
-                <nav id="nav-bar">
-                    <h2 class="nav-names">
-                        <ul class="list-wrapper">
-                            <li class="hide">about</li>
-                            <li class="hide">contact</li>
-                            <li class="hide">send to</li>
-                            <li class="hide">thank you,</li>
-                        </ul>
-                    </h2>
-                    <div class="nav-symbols">
-                        <li>
-                            <button id="first-plus-btn" class="symbols"><img src="images/icons-plus.png" alt="plus"></button>
-                        </li>
-                        <li>
-                            <button id="second-plus-btn" class="symbols hide"><img class="plus-icon" src="images/icons-plus.png" alt="plus"></button>
-                        </li>
-                    </div>
-                </nav>
-            </header>
-            <article class="about-text hide">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo a sed nesciunt labore repellendus nulla repellat culpa veniam dignissimos, incidunt tenetur eveniet quibusdam laborum aperiam sit assumenda. Officia, praesentium totam.</p>
-                <div>
-                    <span><button id="btn-en" class="lang lang-bold">EN</button></span>
-                    <span><button id="btn-pt" class="lang">PT</button></span>
-                </div>
-            </article>
-            <form id="form-wrapper" method="POST" action="thank-you-page.html" data-netlify="true" novalidate>
-                <div id="error-message"></div>
-                <div class="form-container hide">
-                    <hr>
-                    <div class="form-objects">
-                        <label for="contact-name">Nome</label>
-                        <input type="text" id="contact-name" name="name" placeholder="Your Name">
-                    </div>
-                    
-                    <hr>
-                    <div class="form-objects">
-                        <label for="email-address">Contact</label>
-                        <input type="email" id="email-address" name="contact" placeholder="Your Email Adress">
-                    </div>
-                    <hr>
-                    <div class="form-objects">
-                        <label for="message-body">Message</label>
-                        <textarea id="message-body" name="message" placeholder="Your Message" rows="10"></textarea>
-                    </div>
-                </div>
-                <button type="submit" id="form-submit" class="symbols hide">
-                    <img id="form-arrow" src="images/icons-arrow.png" alt="send button">
-                </button>
-                <!-- <input type="submit" value="" id="form-submit" class="symbols hide"> -->
-            </form>
-
-        </body>
-    </html>
+  <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=devide=width, initial-scale=1.0">
+        <title>Paula Bryant-Jorge Nutricionista</title>
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <script src="scripts/script.js" defer></script>
+    </head>
+    <body>
+      <header>
+        <!-- <nav class="navigation-wrapper">
+          <ul class="navigation-container">
+            <li><a href="/">Home</a></li>
+            <li><a href="curriculum.html">Curriculum</a></li>
+            <li><a href="/nutricao-clinica.html">Nutrição clínica</a></li>
+            <li><a href="/peac.html">PEAC - Projeto de Educação Alimentar Clara</a></li>
+            <li><a href="/contacto.html">Contacto</a></li>
+          </ul>
+        </nav> -->
+        <h1>Paula Bryant-Jorge</h1>
+        <h2>Nutricionista - Membro efetivo da Ordem dos Nutricionistas</h2>
+      </header>
+      <section class="about-section">
+        <div> 
+          <p class="about-text">Escolher criteriosamente os alimentos e
+          disfrutar da comida são os ingredientes principais para uma alimentação
+          equilibrada, descomplicada e duradoura e, naturalmente, o melhor
+          caminho para mais saúde e bem-estar.</p>
+          <ul class="curriculum">
+            <li>Licenciada em Ciências da Nutrição (Atlântica - Instituto Universitário)</li>
+            <li>Pós-graduada em Segurança Alimentar (Universidade de Medicina Veterinária de Lisboa)</li>
+            <li>Formações complementares na área da Nutrição e Alimentação (Gestão de peso, Integração Psico-biológica do Comportamento Alimentar, Alimentação Vegetariana)</li>
+            <li>Experiência anterior na área da restauração e organização de eventos</li>
+          </ul>
+      </div>
+    </section>
+    </body>
+  </html>
