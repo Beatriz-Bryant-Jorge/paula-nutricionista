@@ -1,6 +1,4 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -12,47 +10,111 @@ body {
   align-items: center;
   width: 100vw;
   text-align: center;
-  background-color: bisque;
+  margin: 0;
 }
 
 h1,
 h2,
-.about-text {
-  margin: 3rem;
+.about-text,
+.about-section img {
+  margin: 2rem 0;
 }
 
-.about-text {
-  font-size: large;
+ul {
+  margin: 0;
+  padding: 0;
 }
 
-#form-wrapper {
-  text-align: start;
-  width: 50%;
-}
-
-.navigation-wrapper {
-  width: 100vw;
-  background-color: #fff;
-  /* position: fixed; */
-}
-
-.navigation-wrapper ul {
+.about-section > div {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.navigation-wrapper ul li {
+.about-section img {
+  width: 90%;
+}
+
+.about-section .quote {
+  font-style: italic;
+  font-size: 20px;
+  max-width: 80%;
+  position: relative;
+}
+
+.about-section .quote .quote-mark {
+  font-size: 50px;
+  font-family: 'Arial';
+  margin-right: 1rem;
+}
+
+.about-section .curriculum {
+  text-align: start;
+}
+
+.about-section .curriculum li {
+  margin: 2rem;
+  text-align: start;
+  font-size: 20px;
+}
+
+.projecto-clara-section > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projecto-clara-section ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projecto-clara-section ul li {
   list-style: none;
   margin: 1rem;
 }
 
-.navigation-wrapper ul li a {
-  text-decoration: none;
-  color: blue;
+.projecto-clara-section .clara-intro-images img {
+  width: 80px;
 }
+
+.projecto-clara-section .clara-story-image img {
+  width: 50%;
+}
+
 
 @media (min-width: 1200px) {
   /* body {
     padding: 5rem;
   }  */
 
+  .about-section img {
+    width: 50%;
+  }
+  
+  .about-section .quote {
+    font-size: 30px;
+  }
+
+  .about-section .curriculum {
+    max-width: 70%;
+  }
+
+  .projecto-clara-section ul li {
+    margin: 2rem;
+  }
+
+  .projecto-clara-section .clara-intro-images img {
+    width: 200px;
+  }
+  
+}
+
+
+#form-wrapper {
+  text-align: start;
+  width: 50%;
 }
