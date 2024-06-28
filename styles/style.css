@@ -1,406 +1,221 @@
-:root{
-    --orange: rgb(255, 98, 43);
-    --grey: rgb(0, 0, 0, .225);
+* {
+  box-sizing: border-box;
 }
 
-@font-face{
-    font-display: block;
-    font-family: 'Neuzeit LT Book';
-    font-weight: 300;
-    font-style: normal;
-    src: url('fonts/Neuzeit_S_LT_Book.ttf');
+body {
+  font-family: 'Avenir';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin: 0;
+  background-color: #0001;
 }
 
-@font-face{
-    font-display: block;
-    font-family: 'Neuzeit LT Book Heavy';
-    font-weight: 800;
-    font-style: normal;
-    src: url('fonts/Neuzeit_S_LT_BookHeavy.t tf');
+h1,
+h2,
+.about-text {
+  margin: 1rem 0;
 }
 
-*{
-    font-family: 'Helvetica', sans-serif;
-    box-sizing: border-box;
-    font-family: '', sans-serif;
-    letter-spacing: .08rem;
-    margin: 0;
-    padding: 0;
-    font-weight: 400;
-    /* border: 1px solid red; */
+ul,
+img {
+  margin: 0;
+  padding: 0;
 }
 
-html{
-    background-color: var(--grey);
+li {
+  list-style: none;
 }
 
-body{
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: 40% 0 repeat(2, auto);
-    align-items: start;
-    margin: 1.5vw 1.5vw 1vw;
-    height: calc(100vh - 2.5vw);
+img {
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-hr{
-    height: .5px;
-    border: none;
-    background-color: #000;
+.about-image img {
+  height: 650px;
+  width: 100%;
+  object-fit: cover;
 }
 
-button{
-    border: none;
-    background: none;
+.about-section .quote-container {
+  padding: 4rem 0 8rem 0;
 }
 
-button:hover,
-#form-submit{
-    cursor: pointer;
+.about-section .quote-container,
+.about-nutricao-section .quote-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-img{
+.about-section .quote-container p {
+  max-width: 65%;
+  text-align: center;
+}
+
+.about-section .quote,
+.about-nutricao-section .quote {
+  font-style: italic;
+  font-size: 20px;
+  position: relative;
+}
+
+.about-section .quote .quote-mark {
+  font-size: 50px;
+  font-family: 'Arial';
+  margin-right: 1rem;
+}
+
+.about-section .curriculum li {
+  margin: 2rem;
+  text-align: start;
+  font-size: 20px;
+}
+
+.curriculum-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 9rem;
+}
+
+.curriculum-wrapper {
+  display: flex;
+  max-width: 70%;
+}
+
+.curriculum-text {
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.curriculum-section .curriculum-image {
+  max-width: 40%;
+}
+
+.curriculum li {
+  margin: 1rem 0;
+  font-size: 19px;
+}
+
+.areas-accao {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.areas-image {
+  height: 400px;
+  width: 100%;
+}
+
+.areas-image img {
+  height: 400px;
+  width: 100%;
+}
+
+.nutricao-clinica-section,
+.projecto-clara-section {
+  padding: 2rem;
+  width: 50%;
+  height: 500px;
+}
+
+.nutricao-clinica-section {
+  background-color: #1e9d64;
+}
+
+.about-nutricao-section {
+  width: 100%;
+  background-color: #0000001a;
+}
+
+.projecto-clara-section {
+  background-color: #3a7cb8;
+}
+
+.projecto-clara-section > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projecto-clara-section ul {
+  display: flex;
+  align-items: center;
+}
+
+.projecto-clara-section ul li {
+  list-style: none;
+}
+
+.projecto-clara-section .clara-intro-images img {
+  width: 80px;
+}
+
+.projecto-clara-section .clara-story-image img {
+  width: 50%;
+}
+
+.contact-button button {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+}
+
+.contact-button button:hover {
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+}
+
+@media (min-width: 1200px) {
+  header {
     width: 100%;
-}
+    background-color: #c9c040;
+    color: #000;
+    padding: 3rem 5rem;
+  }
 
-li{
-    list-style: none;
-}
-
-.show{
-    display: block;
-}
-
-.hide{
-    display: none;
-}
-
-.lang-bold{
-    font-weight: bold;
-}
-
-/* nav bar */
-h1 button, h2{
-    font-size: 8.5rem;
-}
-
-.stroke{
-    -webkit-text-stroke: 1.5px black;
-    color: transparent;
-}
-
-.orange{
-    color: var(--orange);
-}
-
-/* grid */
-header, h1, #nav-bar, .list-wrapper, .nav-names, .nav-symbols, .nav-symbols li{
-    display: contents;
-}
-
-.nav-names li{
-    grid-column: 1;
-    grid-row: 1;
-    margin-right: 3rem;
-}
-
-.first-column{
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.second-column{
-    grid-column: 2;
-    grid-row: 1;
-}
-
-.name-her-below{
-    grid-column: 1; 
-    grid-row: 1;
-    margin-top: 7rem;
-}
-
-.name-him{
-    grid-row: 4;
-    grid-column: 1 / -1;
-    justify-self: end;
-    align-self: end;
-}
-
-.nav-symbols button{
-    grid-row: 1;
-    grid-column: 3;
-    justify-self: end;
-    width: 7.25rem;
-}
-
-.about-text{
-    grid-row: 1;
-    grid-column: 3;
-    justify-self: end;
-    max-width: 25rem;
-    margin-top: 1rem;
-}
-
-.about-text-mobile{
-    grid-column: 1 / 3;
-    grid-row: 2;
-    justify-self: start;
-}
-
-.about-text p{
-    margin-bottom: 1rem;
-}
-
-#second-plus-btn{
-    grid-column: 1;
-    grid-row: 4;
-    align-self: end;
-    justify-self: start;
-    margin-bottom: 1rem;
-}
-
-#error-message{
-    grid-column: 1;
-    grid-row: 2;
-    align-self: end;
-    font-size: 0.75rem;
-    max-width: 30rem;
-    padding: 10px;
-    /* margin-bottom: 2rem; */
-    /* margin-left: 10px; */
-    /* background-color: var(--orange); */
-}
-
-
-/* form */
-#form-wrapper{
-    display: contents;
-}
-
-.form-container{
-    grid-column: 1;
-    grid-row: 3;
-    max-width: 30rem;
-}
-
-input, textarea{
-    border: none;
-    background-color: transparent;
-    font-size: .85rem;
-    color: #000a;
-}
-
-.form-objects{
+  .header-wrapper {
     display: flex;
-    flex-direction: column;
-    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .about-section .quote {
+    font-size: 30px;
+  }
+
+  .about-section .curriculum {
+    max-width: 70%;
+  }
+
+  .projecto-clara-section ul li {
+    margin-right: 2rem;
+  }
+
+  .projecto-clara-section .clara-intro-images img {
+    width: 100px;
+  }
 }
 
-label{
-    font-size: .75rem;
-    text-transform: uppercase;
-    margin-bottom: .35rem;
+#form-wrapper {
+  text-align: start;
+  width: 50%;
+  padding: 8rem 0;
 }
-
-input:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-
-textarea{
-    resize: none;
-}
-
-button[type="submit"]{
-    width: 7.25rem;
-    align-self: end;
-    grid-column: 1;
-    grid-row: 4;
-    margin-bottom: 1rem;
-}
-
-hr{
-    position: relative;
-}
-
-.error-message-color{
-    /* border: 2px solid var(--grey); */
-    background-color: var(--orange);
-}
-
-
-/* media queries */
-
-@media screen and (max-width: 1550px){
-
-    h1 button,
-    h2{
-        font-size: 7.85rem;
-    }
-
-    .nav-symbols button,
-    #second-plus-btn,
-    button[type="submit"]{
-        width: 6.65rem;
-        margin-bottom: .5rem;
-    }
-
-}
-
-@media screen and (max-width: 1330px){
-
-    h1 button,
-    h2{
-        font-size: 7rem;
-    }
-
-    .form-container,
-    #error-message{
-        max-width: 25rem;
-    }
-
-    .about-text p{
-        font-size: 0.9rem;
-    }
-
-    .nav-symbols button,
-    #second-plus-btn,
-    button[type="submit"]{
-        width: 6rem;
-        margin-bottom: .4rem;
-    }
-}
-
-@media screen and (max-width: 1200px){
-
-    .about-text p{
-        font-size: 0.85rem;
-        max-width: 20rem;
-    }
-
-}
-
-
-@media screen and (max-width: 900px){
-
-    body{
-        margin: 2.5vw 2.5vw 2vw;
-        height: calc(100vh - 4.5vw);
-    }
-    
-    .nav-names li{
-        margin-right: 5rem;
-    }
-
-    .about-text p{
-        font-size: 0.85rem;
-    }
-
-    h1 button,
-    h2{
-        font-size: 6.5rem;
-    }
-
-    .nav-symbols button,
-    #second-plus-btn,
-    button[type="submit"]{
-        width: 5.6rem;
-        margin-bottom: .5rem;
-    }
-}
-
-
-@media screen and (max-width: 750px){
-
-    .about-text-mobile p{
-        font-size: 1.25rem;
-    }
-
-}
-
-@media screen and (max-width: 670px){
-
-    .nav-symbols button,
-    #second-plus-btn,
-    button[type="submit"]{
-        width: 5.4rem;
-    }
-
-    .about-text-mobile p{
-        font-size: 1rem;
-    }
-
-    .form-container,
-    #error-message,
-    .about-text-mobile p{
-        max-width: 70vw;
-    }
-}
-
-@media screen and (max-width: 600px){
-
-    body{
-        margin: 3vw 3.5vw 2.5vw;
-        height: calc(100vh - 5.5vw);
-    }
-    
-    h1 button,
-    h2{
-        font-size: 5.5rem;
-    }
-    
-    .nav-symbols button,
-    #second-plus-btn,
-    button[type="submit"]{
-        width: 4.5rem;
-        margin-bottom: .5rem;
-    }
-
-    .about-text-mobile p {
-        font-size: 1rem;
-    }
-
-    .name-her-below {
-        margin-top: 6rem;
-      }
-}
-
-
-@media screen and (max-width: 480px){
-
-    body{
-        grid-template-columns: auto 1fr auto;
-        grid-template-rows: auto;
-        /* align-items: start; */
-        margin: 5vw 5.5vw 4.5vw;
-        height: calc(100vh - 9.5vw);
-    }
-
-    h1 button,
-    h2{
-        font-size: 3.85rem;
-    }
-
-    .name-her-below{
-        margin-top: 4.25rem;
-    }
-
-    .nav-symbols button,
-    #second-plus-btn,
-    button[type="submit"]{
-        width: 3.15rem;
-        margin-bottom: .1rem;
-    }
-
-    .form-container,
-    #error-message,
-    .about-text-mobile p{
-        max-width: 70vw;
-    }
-
-
-}
-
-
