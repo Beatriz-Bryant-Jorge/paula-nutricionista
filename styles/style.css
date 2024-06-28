@@ -9,37 +9,54 @@ body {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  text-align: center;
   margin: 0;
 }
 
 h1,
 h2,
-.about-text,
-.about-section img {
-  margin: 2rem 0;
+.about-text {
+  margin: 1rem 0;
 }
 
-ul {
+ul,
+img {
   margin: 0;
   padding: 0;
 }
 
-.about-section > div {
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-image img {
+  height: 650px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-section .quote-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 4rem 0 6rem 0;
+  width: 100%;
 }
 
-.about-section img {
-  width: 90%;
+.about-section .quote-container p{
+  max-width: 65%;
+  text-align: center;
 }
 
 .about-section .quote {
   font-style: italic;
   font-size: 20px;
-  max-width: 80%;
   position: relative;
 }
 
@@ -49,14 +66,68 @@ ul {
   margin-right: 1rem;
 }
 
-.about-section .curriculum {
-  text-align: start;
-}
-
 .about-section .curriculum li {
   margin: 2rem;
   text-align: start;
   font-size: 20px;
+}
+
+.curriculum-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+.curriculum-wrapper {
+  display: flex;
+  max-width: 70%;
+}
+
+.curriculum-text {
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.curriculum-section .curriculum-image {
+  max-width: 40%;
+}
+
+.curriculum li {
+  margin: 1rem 0;
+}
+
+.areas-accao {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.areas-image {
+  height: 400px;
+  width: 100%;
+}
+
+.areas-image img {
+  height: 400px;
+  width: 100%;
+}
+
+.nutricao-clinica-section,
+.projecto-clara-section {
+  padding: 2rem;
+  width: 50%;
+}
+
+.nutricao-clinica-section {
+  background-color: #1e9d64;
+}
+
+.projecto-clara-section {
+  background-color: #3a7cb8;
 }
 
 .projecto-clara-section > div {
@@ -68,13 +139,11 @@ ul {
 
 .projecto-clara-section ul {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .projecto-clara-section ul li {
   list-style: none;
-  margin: 1rem;
 }
 
 .projecto-clara-section .clara-intro-images img {
@@ -85,16 +154,38 @@ ul {
   width: 50%;
 }
 
+.contact-button button {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  /* border: 1px solid #000; */
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+}
+
+.contact-button button:hover {
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+}
 
 @media (min-width: 1200px) {
-  /* body {
-    padding: 5rem;
-  }  */
-
-  .about-section img {
-    width: 50%;
+  header {
+    width: 100%;
+    background-color: #c9c040;
+    color: #000;
+    padding: 3rem 5rem;
   }
-  
+
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .about-section .quote {
     font-size: 30px;
   }
@@ -104,11 +195,11 @@ ul {
   }
 
   .projecto-clara-section ul li {
-    margin: 2rem;
+    margin-right: 2rem;
   }
 
   .projecto-clara-section .clara-intro-images img {
-    width: 200px;
+    width: 100px;
   }
   
 }
