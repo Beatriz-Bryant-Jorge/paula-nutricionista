@@ -12,24 +12,26 @@
         <div class="header-wrapper">
           <div class="header-titles">
             <h1>Paula Bryant-Jorge</h1>
-            <h2>Nutricionista</h2>
-            <h3>Membro efetivo da Ordem dos Nutricionistas</h3>
+            <h2>Nutricionista (4458N)</h2>
           </div>
-          <div class="contact-button">
-            <button>Contacto</button>
-          </div>
+          <nav class="nav-wrapper">
+            <a href="/">Home</a>
+            <a href="curriculum.html">CV</a>
+            <a href="contacto.html">Contacto</a>
+          </nav>
         </div>
       </header>
-      <section class="about-section">
+      <section class="hero-wrapper">
+        <div class="hero-image">
+          <img src="/images/happy-nutrition.png" alt="nutricionista">
+        </div>
+      </section>
+      <section class="quote-section">
         <div>
-          <div class="about-image">
-            <img src="/images/happy-nutrition.png" alt="nutricionista">
-          </div>
           <div class="quote-container">
-            <p class="quote">Escolher criteriosamente os alimentos e
-              disfrutar da comida são os ingredientes principais para uma alimentação
-              equilibrada, descomplicada e duradoura e, naturalmente, o melhor
-              caminho para mais saúde e bem-estar.
+            <p class="quote">Escolher criteriosamente os alimentos e disfrutar da comida são os
+              ingredientes principais para uma alimentação equilibrada, descomplicada e
+              duradoura e, naturalmente, o melhor caminho para mais bem-estar e saúde.
             </p>
           </div>
         </div>
@@ -42,10 +44,18 @@
           <div class="curriculum-text">
             <h2>Sobre mim</h2>
             <ul class="curriculum">
-              <li>Licenciada em Ciências da Nutrição (Atlântica - Instituto Universitário)</li>
-              <li>Pós-graduada em Segurança Alimentar (Universidade de Medicina Veterinária de Lisboa)</li>
-              <li>Formações complementares na área da Nutrição e Alimentação (Gestão de peso, Integração Psico-biológica do Comportamento Alimentar, Alimentação Vegetariana)</li>
-              <li>Experiência anterior na área da restauração e organização de eventos</li>
+              <p>A vida rodeada de uma família numerosa consciencializou-me para a
+                importância de uma alimentação de qualidade no bom desenvolvimento físico e
+                mental, em todas as fases da nossa vida.
+                O PEAC - Projeto de Educação Alimentar Clara, do qual sou co-autora, reflete
+                a preocupação em sensibilizar, desde muito cedo, para escolhas alimentares
+                adequadas que poderão repercutir-se ao longo da vida.
+                A experiência anterior na área da restauração e organização de eventos
+                permitiu-me compreender a necessidade gerir de forma sustentável os
+                recursos, sem comprometer a qualidade da refeição.
+                A formação académica contínua permite-me uma reflexão permanente sobre a
+                minha prática laboral, de forma a corresponder da melhor forma às exigências
+                da profissão.</p>
             </ul>
           </div>
         </div>
@@ -59,9 +69,15 @@
       </div>
     </section>
       <section class="areas-accao">
-        <!-- <div class="areas-image">
-          <img src="/images/nutricionista.jpg" alt="nutricionista">
-        </div> -->
+        <div class="areas-intervencao-section">
+          <h2>Áreas de intervenção</h2>
+          <p class="quote">
+            Avaliação do estado nutricional e hábitos alimentares
+            Aconselhamento ou plano alimentar personalizado
+            Recomendações nutricionais ao longo do ciclo da vida
+            Acompanhamento na mudança de padrões alimentares
+          </p>
+        </div>
         <div class="nutricao-clinica-section">
           <h2>Nutrição clínica</h2>
           <p class="quote">
@@ -90,30 +106,6 @@
           </p>
         </div>
       </section>
-      <form id="form-wrapper" method="POST" action="thank-you-page.html" data-netlify="true" novalidate>
-        <div class="form-container">
-          <h2>Entre em contacto</h2>
-          <div id="error-message"></div>
-          <div class="fill-form">
-            <hr>
-            <div class="form-objects">
-              <label for="contact-name">Nome</label>
-              <input type="text" id="contact-name" name="name" placeholder="Your Name">
-            </div>
-            <hr>
-            <div class="form-objects">
-              <label for="email-address">Contact</label>
-              <input type="email" id="email-address" name="contact" placeholder="Your Email Adress">
-            </div>
-            <hr>
-            <div class="form-objects">
-              <label for="message-body">Message</label>
-              <textarea id="message-body" name="message" placeholder="Your Message" rows="10"></textarea>
-            </div>
-          </div>
-          <input type="submit" value="Enviar" id="form-submit" class="symbols hide">
-        </div>
-      </form>
       <footer>
         <div>
           <ul>

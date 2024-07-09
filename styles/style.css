@@ -25,27 +25,47 @@ img {
   padding: 0;
 }
 
-li {
-  list-style: none;
-}
-
 img {
   max-width: 100%;
   object-fit: cover;
   display: block;
 }
 
-.about-image img {
-  height: 650px;
+header {
   width: 100%;
-  object-fit: cover;
+  background-color: #c9c040;
+  color: #000;
+  padding: 2rem;
 }
 
-.about-section .quote-container {
-  padding: 4rem 0 8rem 0;
+.nav-wrapper {
+  margin-top: 3rem;
 }
 
-.about-section .quote-container,
+.nav-wrapper a {
+  font-size: 1.2rem;
+  color: #000;
+  text-decoration: none;
+  margin-right: 1rem;
+  background-color: #fff;
+  padding: .5rem .75rem;
+  border-radius: 20px;
+}
+
+.nav-wrapper a:hover {
+  text-decoration: underline;
+}
+
+.hero-wrapper img {
+  height: 650px;
+  width: 100vw;
+}
+
+.quote-section .quote-container {
+  padding: 4rem 0;
+}
+
+.quote-section .quote-container,
 .about-nutricao-section .quote-container {
   display: flex;
   flex-direction: column;
@@ -54,44 +74,46 @@ img {
   width: 100%;
 }
 
-.about-section .quote-container p {
-  max-width: 65%;
+.about-nutricao-section {
+  margin-top: 4rem;
+}
+
+.about-nutricao-section .quote-container {
+  padding: 1.5rem;
+}
+
+.quote-section .quote-container p {
+  max-width: 85%;
   text-align: center;
 }
 
-.about-section .quote,
+.quote-section .quote,
 .about-nutricao-section .quote {
   font-style: italic;
   font-size: 20px;
   position: relative;
 }
 
-.about-section .quote .quote-mark {
+.quote-section .quote .quote-mark {
   font-size: 50px;
   font-family: 'Arial';
   margin-right: 1rem;
-}
-
-.about-section .curriculum li {
-  margin: 2rem;
-  text-align: start;
-  font-size: 20px;
 }
 
 .curriculum-section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 9rem;
 }
 
 .curriculum-wrapper {
   display: flex;
-  max-width: 70%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .curriculum-text {
-  /* background-color: pink; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -99,7 +121,7 @@ img {
 }
 
 .curriculum-section .curriculum-image {
-  max-width: 40%;
+  max-width: 60%;
 }
 
 .curriculum li {
@@ -109,7 +131,7 @@ img {
 
 .areas-accao {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .areas-image {
@@ -123,9 +145,9 @@ img {
 }
 
 .nutricao-clinica-section,
-.projecto-clara-section {
+.projecto-clara-section,
+.areas-intervencao-section {
   padding: 2rem;
-  width: 50%;
   height: 500px;
 }
 
@@ -134,8 +156,12 @@ img {
 }
 
 .about-nutricao-section {
-  width: 100%;
   background-color: #0000001a;
+  width: 100%;
+}
+
+.areas-intervencao-section {
+  background-color: #574;
 }
 
 .projecto-clara-section {
@@ -183,11 +209,40 @@ img {
   color: #fff;
 }
 
+@media (min-width: 750px) {
+  .quote-section .quote-container p {
+    max-width: 65%;
+  }
+
+  .curriculum-section .curriculum-image {
+    min-width: 40%;
+  }
+
+  .curriculum-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+  }
+}
+
 @media (min-width: 1200px) {
-  header {
-    width: 100%;
-    background-color: #c9c040;
+  .nav-wrapper {
+    margin-top: 0;
+  }
+
+  .nav-wrapper a {
+    font-size: 1.2rem;
     color: #000;
+    text-decoration: none;
+    margin-right: 1rem;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+  
+  header {
     padding: 3rem 5rem;
   }
 
@@ -197,12 +252,20 @@ img {
     align-items: center;
   }
 
-  .about-section .quote {
+  .quote-section .quote {
     font-size: 30px;
+  }
+
+  .quote-section .quote-container {
+    padding: 6rem 0;
   }
 
   .about-section .curriculum {
     max-width: 70%;
+  }
+
+  .about-nutricao-section {
+    margin-top: 8rem;
   }
 
   .projecto-clara-section ul li {
@@ -211,6 +274,27 @@ img {
 
   .projecto-clara-section .clara-intro-images img {
     width: 100px;
+  }
+
+  .curriculum-wrapper {
+    padding: 4rem 8rem;
+  }
+
+  .areas-accao {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nutricao-clinica-section,
+  .projecto-clara-section,
+  .areas-intervencao-section {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .curriculum-wrapper {
+    padding: 4rem 18rem;
   }
 }
 
