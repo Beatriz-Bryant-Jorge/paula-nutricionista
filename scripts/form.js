@@ -38,10 +38,7 @@ function warningErrorMessage(messageContent) {
 
 
 
-// -------------------------------------------
 // FORM VALIDATION
-// -------------------------------------------
-
 
 let isFormValid = false;
 
@@ -90,19 +87,6 @@ sendForm.addEventListener('submit', (e) => {
     } else{
         isFormValid = true;
     }
-
-    // deletes not valid inputs
-    // if(errorMessageBody.classList.contains('error-message-color')){
-    //     messageBody.value = '';
-    // } 
-    
-    // if(errorContactName.classList.contains('error-message-color')){
-    //     contactName.value = '';
-    // } 
-    
-    // if(errorEmailAddress.classList.contains('error-message-color')){
-    //     emailAddress.value = '';
-    // }
 
     // sends validated form
     if(isFormValid){
