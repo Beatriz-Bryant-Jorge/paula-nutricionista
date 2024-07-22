@@ -1,132 +1,30 @@
+// slideshow code
 
-// form
-const form = document.querySelector('.form-container');
-const sendForm = document.getElementById('form-wrapper');
-const contactName = document.getElementById('contact-name');
-const emailAddress = document.getElementById('email-address');
-const messageBody = document.getElementById('message-body');
-const errorMessage = document.getElementById('error-message');
+let slideIndex = 1;
+showSlides(slideIndex);
 
-const errorContactName = document.querySelector('.form-container div:nth-child(2)');
-const errorEmailAddress = document.querySelector('.form-container div:nth-child(4)');
-const errorMessageBody = document.querySelector('.form-container div:nth-child(6)');
-
-
-
-
-
-// -------------------------------------------
-// CHECKS FOR VALID EMAIL
-// -------------------------------------------
-
-function isEmail(email) {
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
 
-
-
-// -------------------------------------------
-// SETS A TIMER FOR WARNING MESSAGE
-// -------------------------------------------
-
-function warningErrorColor(element, className){
-    addClass(element, className);
-    setTimeout(() => {
-        removeClass(element, className);
-    }, 3000);
-};
-
-function warningErrorMessage(messageContent){
-    errorMessage.textContent = messageContent;
-    errorMessage.style.backgroundColor = 'var(--orange)';
-    setTimeout(() => {
-        errorMessage.textContent = '';
-        errorMessage.style.backgroundColor = 'transparent';
-    }, 3000); 
+function currentSlide(n) {
+  showSlides(slideIndex = n);
 }
 
-
-
-// -------------------------------------------
-// FORM VALIDATION
-// -------------------------------------------
-
-
-let isFormValid = false;
-
-sendForm.addEventListener('submit', (e) => {
-
-    let messages = [];
-
-    // defines error message for name
-    // IF checks if input is empty
-    if(contactName.value === '' || contactName.value == null ){
-        messages.push('Name required ');
-        // warningErrorColor(errorContactName, 'error-message-color');
-    }
-
-    // defines error message for email
-    // IF checks if input is empty
-    if(emailAddress.value === '' || emailAddress.value == null){
-        messages.push('Email cannot be empty ');
-        // warningErrorColor(errorEmailAddress, 'error-message-color');
-
-    // ELSE IF checks is input is a valid email
-    } else if(!isEmail(emailAddress.value)){
-        messages.push('Enter a valid email ');
-        // warningErrorColor(errorEmailAddress, 'error-message-color');
-    }
-
-    // defines error message for message body
-    // IF checks if input is empty
-    if(messageBody.value === '' || messageBody.value == null){
-        messages.push('Message cannot be empty ');
-        // warningErrorColor(errorMessageBody, 'error-message-color');
-
-    // ELSE IF checks is input has less than 15 char
-    } else if(messageBody.value.length < 15){
-        messages.push('Message must be longer ');
-        // warningErrorColor(errorMessageBody, 'error-message-color');
-    }
-
-
-    // writes error messages
-    if(messages.length == 1){
-        e.preventDefault();
-        isFormValid = false;
-        warningErrorMessage(messages[0]);
-
-        
-    } else if(messages.length > 1){
-        e.preventDefault();
-        isFormValid = false;
-        warningErrorMessage(messages.join('& '));
-
-    } else{
-        isFormValid = true;
-    }
-
-    // deletes not valid inputs
-    if(errorMessageBody.classList.contains('error-message-color')){
-        messageBody.value = '';
-    } 
-    
-    if(errorContactName.classList.contains('error-message-color')){
-        contactName.value = '';
-    } 
-    
-    if(errorEmailAddress.classList.contains('error-message-color')){
-        emailAddress.value = '';
-    }
-
-    // sends validated form
-    if(isFormValid){
-        form.remove();
-        addClass(nav3, 'hide');
-        removeClass(nav4, 'hide');
-        addClass(nav4, 'stroke');  
-    }
-    
-});
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
 
 
