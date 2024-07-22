@@ -38,6 +38,10 @@ header {
   padding: 2rem;
 }
 
+header.form-sent {
+  height: 100vh;
+}
+
 .nav-wrapper {
   margin-top: 3rem;
 }
