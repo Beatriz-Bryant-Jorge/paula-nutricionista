@@ -78,10 +78,6 @@ header {
   margin-top: 4rem;
 }
 
-.about-nutricao-section .quote-container {
-  padding: 1.5rem;
-}
-
 .quote-section .quote-container p {
   max-width: 85%;
   text-align: center;
@@ -121,17 +117,23 @@ header {
 }
 
 .curriculum-section .curriculum-image {
-  max-width: 60%;
+  max-width: 70%;
 }
 
+.curriculum,
 .curriculum li {
   margin: 1rem 0;
   font-size: 19px;
 }
 
+.curriculum li {
+  list-style: none;
+}
+
 .areas-accao {
   display: flex;
   flex-direction: column;
+  min-width: 100%;
 }
 
 .areas-image {
@@ -148,11 +150,14 @@ header {
 .projecto-clara-section,
 .areas-intervencao-section {
   padding: 2rem;
-  height: 500px;
+}
+
+.areas-intervencao-images {
+  max-width: 80%;
 }
 
 .nutricao-clinica-section {
-  background-color: #1e9d64;
+  background-color: #ffe89c;
 }
 
 .about-nutricao-section {
@@ -161,31 +166,27 @@ header {
 }
 
 .areas-intervencao-section {
-  background-color: #574;
+  background-color: #b08df3;
 }
 
 .projecto-clara-section {
-  background-color: #3a7cb8;
+  background-color: #fff9e6;
 }
 
 .projecto-clara-section > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
-.projecto-clara-section ul {
+.projecto-clara-section .clara-intro-images {
   display: flex;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .projecto-clara-section ul li {
   list-style: none;
-}
-
-.projecto-clara-section .clara-intro-images img {
-  width: 80px;
 }
 
 .projecto-clara-section .clara-story-image img {
@@ -215,7 +216,7 @@ header {
   }
 
   .curriculum-section .curriculum-image {
-    min-width: 40%;
+    max-width: 40%;
   }
 
   .curriculum-wrapper {
@@ -225,6 +226,19 @@ header {
     align-items: center;
     padding: 3rem;
   }
+}
+
+.areas-accao h2 {
+  font-size: 18px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+
+.areas-intervencao-text li,
+.nutricao-clinica-text li,
+.projecto-clara-text li {
+  list-style: none;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 1200px) {
@@ -256,12 +270,12 @@ header {
     font-size: 30px;
   }
 
-  .quote-section .quote-container {
-    padding: 6rem 0;
+  .nutricao-texto {
+    font-size: 20px;
   }
 
-  .about-section .curriculum {
-    max-width: 70%;
+  .quote-section .quote-container {
+    padding: 6rem 0;
   }
 
   .about-nutricao-section {
@@ -270,10 +284,6 @@ header {
 
   .projecto-clara-section ul li {
     margin-right: 2rem;
-  }
-
-  .projecto-clara-section .clara-intro-images img {
-    width: 100px;
   }
 
   .curriculum-wrapper {
@@ -300,6 +310,158 @@ header {
 
 #form-wrapper {
   text-align: start;
-  width: 50%;
   padding: 8rem 0;
 }
+
+input,
+textarea {
+  padding: 1rem;
+  /* width: 80vw; */
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-family: 'Avenir';
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+#error-message-container {
+  max-width: 80vw;
+}
+
+.fill-form {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-objects {
+  width: 100%;
+}
+
+.contact-button button:hover,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+@media (min-width: 800px) {
+  .fill-form,
+  #error-message-container {
+    width: 550px;
+  }
+}
+
+footer {
+  padding: 2rem;
+  width: 100%;
+  background-color: #0000001a;
+  text-align: center;
+}
+
+/* slideshow code */
+
+.slideshow-section {
+  margin: 10rem 0;
+}
+
+.mySlides {
+  display: none
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #ffe89c;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
