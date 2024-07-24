@@ -328,8 +328,8 @@ textarea {
   width: 100%;
 }
 
-#error-message-container {
-  max-width: 80vw;
+.error-message-container {
+  border: 2px solid red;
 }
 
 .fill-form {
@@ -348,13 +348,16 @@ button[type="submit"] {
   cursor: pointer;
 }
 
+button[type="submit"] {
+  margin-top: 2rem;
+}
+
 textarea {
   resize: none;
 }
 
 @media (min-width: 800px) {
-  .fill-form,
-  #error-message-container {
+  .fill-form {
     width: 550px;
   }
 }
