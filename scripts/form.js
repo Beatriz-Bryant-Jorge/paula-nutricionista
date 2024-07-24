@@ -1,16 +1,15 @@
 const form = document.querySelector("#form-wrapper");
-const contactName = document.getElementById('contact-name');
-const emailAddress = document.getElementById('email-address');
-const messageBody = document.getElementById('message-body');
 
 const submitForm = (e) => {
   e.preventDefault();
   const inputs = document.querySelectorAll('.validate');
   const invalidFields = Array.from(inputs).filter(input => input.value === "");
-  console.log(inputs);
   if (invalidFields.length > 0) {
     invalidFields.forEach((field) => {
-      field.classList.add('error')
+      field.classList.add('error-message-container');
+      setTimeout(() => {
+        field.classList.remove('error-message-container');
+      }, 1000)
     })
     return false;
   } else {
