@@ -21,7 +21,7 @@
         </nav>
       </div>
     </header>
-  <form id="form-wrapper" name="Contacto" method="POST" action="thank-you-page.html" data-netlify="true" data-netlify-honeypot="botfield">
+  <form id="form-wrapper" name="Contacto" method="POST" action="thank-you-page.html" data-netlify="true" data-netlify-honeypot="botfield" onSubmit="submit">
     <div class="form-container">
       <h2>Entre em contacto</h2>
       <div id="error-message-container">
@@ -30,15 +30,15 @@
       <input name="bot-field" style="display: none;">
       <div class="fill-form">
         <div class="form-objects">
-          <label for="name">Nome</label>
+          <label for="contact-name">Nome</label>
           <input type="text" id="contact-name" name="name" placeholder="Nome">
         </div>
         <div class="form-objects">
-          <label for="contact">E-mail</label>
+          <label for="email-address">E-mail</label>
           <input type="email" id="email-address" name="contact" placeholder="Endereço de Email">
         </div>
         <div class="form-objects">
-          <label for="message">Mensagem</label>
+          <label for="message-body">Mensagem</label>
           <textarea id="message-body" name="message" placeholder="Mensagem" rows="10"></textarea>
         </div>
       </div>
