@@ -21,22 +21,34 @@
         </nav>
       </div>
     </header>
-    <form id="form" name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
-      <p>
-        <label>Your Name: <input class="validate" type="text" name="name" /></label>
-    
-      <p>
-        <label>Your Email: <input class="validate" type="email" name="email" /></label>
-      </p>
-      <p>
-          <label>Subject <input class="validate" type="text" name="subject" /></label>
-      </p>
-        <label>Message: <textarea class="validate" name="message"></textarea></label>
-      </p>
-      <div data-netlify-recaptcha="true"></div>
-      <p>
-        <button type="submit">Send</button>
-      </p>
+    <form id="form-wrapper" name="Contacto" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="/thank-you-page.html">
+      <div class="form-container">
+        <h2>Entre em contacto</h2>
+        <div id="error-message-container">
+          <p id="error-message"></p>
+        </div>
+        <div class="fill-form">
+          <div class="form-objects">
+              <label>Nome
+                <input class="validate" type="text" name="name"/>
+              </label>
+          </div>
+          <div class="form-objects">
+            <label>Email
+              <input class="validate" type="email" name="email" />
+            </label>
+          </div>
+          <div class="form-objects">
+            <label>Mensagem 
+              <textarea class="validate" name="message"></textarea>
+            </label>
+          </div>
+          <div data-netlify-recaptcha="true"></div>
+          <div class="form-objects">
+            <button type="submit">Send</button>
+          </div>
+        </div>
+      </div>
     </form>
   </body>
 </html>
