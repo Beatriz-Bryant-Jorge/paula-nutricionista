@@ -1,4 +1,4 @@
 setTimeout(() => {
-    window.open('index.html', '_self');
+    window.open('../index.html', '_self');
 }, 4000);
 
