@@ -13,6 +13,10 @@ body {
   background-color: #0001;
 }
 
+.header-wrapper {
+  height: 100vh;
+}
+
 h1,
 h2,
 .about-text {
