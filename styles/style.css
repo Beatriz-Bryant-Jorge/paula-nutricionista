@@ -13,10 +13,6 @@ body {
   background-color: #0001;
 }
 
-.header-wrapper {
-  height: 100vh;
-}
-
 h1,
 h2,
 .about-text {
@@ -310,6 +306,13 @@ header.form-sent {
   .curriculum-wrapper {
     padding: 4rem 18rem;
   }
+}
+
+.form-section {
+  background-color: #c9c040;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #form-wrapper {
