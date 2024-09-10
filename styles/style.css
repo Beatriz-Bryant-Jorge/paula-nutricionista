@@ -312,6 +312,13 @@ header.form-sent {
   }
 }
 
+.form-section {
+  background-color: #c9c040;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 #form-wrapper {
   text-align: start;
   padding: 8rem 0;
