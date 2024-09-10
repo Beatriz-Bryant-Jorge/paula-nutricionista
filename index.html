@@ -15,9 +15,8 @@
             <h2>Membro da Ordem dos Nutricionistas (4458N)</h2>
           </div>
           <nav class="nav-wrapper">
-            <a href="/">Home</a>
-            <a href="/curriculum.html">CV</a>
-            <a href="/contacto.html">Contacto</a>
+            <a href="#about">Sobre</a>
+            <a href="#form-wrapper">Contacto</a>
           </nav>
         </div>
       </header>
@@ -36,7 +35,7 @@
           </div>
         </div>
       </section>
-      <section class="curriculum-section">
+      <section id="about" class="curriculum-section">
         <div class="curriculum-wrapper">
           <div class="curriculum-image">
             <img src="/images/nutricionista-2.jpg" alt="nutricionista">
@@ -59,6 +58,22 @@
           </div>
         </div>
     </section>
+    <section id="curriculum" class="curriculum-section">
+      <div class="curriculum-wrapper">
+        <div class="curriculum-text">
+          <h2>CV</h2>
+          <ul class="curriculum">
+            <li>Licenciatura em Ciências da Nutrição (Atlântica - Instituto Universitário)</li>
+            <li>Certificado de Competências Pedagógicas de Formador</li>
+            <li>Pós-graduação em Segurança Alimentar (Universidade de Medicina Veterinária de
+            Lisboa)</li>
+            <li>Formações complementares na área da Nutrição e Alimentação (Gestão de peso,
+            Integração Psico-biológica do Comportamento Alimentar, Interpretação de Análises
+            Clínicas, Alimentação Vegetariana)</li>
+          </ul>
+        </div>
+      </div>
+  </section>
     <section class="about-nutricao-section">
       <div>
         <div class="quote-container">
@@ -131,6 +146,32 @@
         <a class="next" onclick="plusSlides(1)">❯</a>
         
         </div>
+      </section>
+      <section class="form-section">
+        <form id="form-wrapper" name="Contacto" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="/success/">
+          <div class="form-container">
+            <h2>Entre em contacto</h2>
+            <div class="fill-form">
+              <div class="form-objects">
+                  <label>Nome
+                    <input class="validate" type="text" name="name"/>
+                  </label>
+              </div>
+              <div class="form-objects">
+                <label>Email
+                  <input class="validate" type="email" name="email" />
+                </label>
+              </div>
+              <div class="form-objects">
+                <label>Mensagem 
+                  <textarea class="validate" name="message"></textarea>
+                </label>
+              </div>
+              <div data-netlify-recaptcha="true"></div>
+              <button type="submit">Send</button>
+            </div>
+          </div>
+        </form>
       </section>
       <footer>
         <div>
