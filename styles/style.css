@@ -16,7 +16,12 @@ body {
 h1,
 h2,
 .about-text {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+}
+
+h2,
+.about-text {
+  font-size: 1.25rem;
 }
 
 ul,
@@ -120,18 +125,18 @@ header.form-sent {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3rem;
+  padding: 0 4rem;
 }
 
 .curriculum-section .curriculum-image {
-  min-width: 40%;
-  max-width: 70%;
+  min-width: 35%;
+  max-width: 60%;
 }
 
 .curriculum,
 .curriculum li {
   margin: .5rem 0;
-  font-size: 19px;
+  font-size: 18.5px;
 }
 
 .curriculum li {
@@ -157,7 +162,8 @@ header.form-sent {
 .nutricao-clinica-section,
 .projecto-clara-section,
 .areas-intervencao-section {
-  padding: 2rem;
+  padding: 3rem;
+
 }
 
 .areas-intervencao-images {
@@ -223,21 +229,19 @@ header.form-sent {
     max-width: 65%;
   }
 
-  .curriculum-section .curriculum-image {
-    max-width: 40%;
-  }
-
   .curriculum-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 3rem;
+    padding-bottom: 0;
   }
 }
 
 .areas-accao h2,
-.curriculum-title {
+.curriculum-title,
+#about h2 {
   font-size: 18px;
   letter-spacing: .1rem;
   text-transform: uppercase;
@@ -258,7 +262,8 @@ header.form-sent {
 .nutricao-clinica-text li,
 .projecto-clara-text li {
   list-style: none;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
+  font-size: 1.1rem;
 }
 
 @media (min-width: 1200px) {
@@ -287,7 +292,7 @@ header.form-sent {
   }
 
   .quote-section .quote {
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .nutricao-texto {
@@ -295,11 +300,11 @@ header.form-sent {
   }
 
   .quote-section .quote-container {
-    padding: 6rem 0;
+    padding: 5rem 0 1rem 0;
   }
 
   .about-nutricao-section {
-    margin-top: 8rem;
+    margin-top: 6rem;
   }
 
   .projecto-clara-section ul li {
