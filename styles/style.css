@@ -31,6 +31,10 @@ img {
   display: block;
 }
 
+/* .curriculum-image img {
+  min-width: 500px;
+} */
+
 header {
   width: 100%;
   background-color: #c9c040;
@@ -89,7 +93,6 @@ header.form-sent {
 
 .quote-section .quote,
 .about-nutricao-section .quote {
-  font-style: italic;
   font-size: 20px;
   position: relative;
 }
@@ -121,12 +124,13 @@ header.form-sent {
 }
 
 .curriculum-section .curriculum-image {
+  min-width: 40%;
   max-width: 70%;
 }
 
 .curriculum,
 .curriculum li {
-  margin: 1rem 0;
+  margin: .5rem 0;
   font-size: 19px;
 }
 
@@ -161,7 +165,7 @@ header.form-sent {
 }
 
 .nutricao-clinica-section {
-  background-color: #ffe89c;
+  background-color: #c9c040;
 }
 
 .about-nutricao-section {
@@ -170,11 +174,11 @@ header.form-sent {
 }
 
 .areas-intervencao-section {
-  background-color: #b08df3;
+  background-color: #fff9e6;
 }
 
 .projecto-clara-section {
-  background-color: #fff9e6;
+  background-color: rgb(255, 232, 156);
 }
 
 .projecto-clara-section > div {
@@ -232,10 +236,22 @@ header.form-sent {
   }
 }
 
-.areas-accao h2 {
+.areas-accao h2,
+.curriculum-title {
   font-size: 18px;
   letter-spacing: .1rem;
   text-transform: uppercase;
+}
+
+.curriculum-title {
+  font-weight: bold;
+  margin: 0;
+  font-size: 16px;
+}
+
+
+.curriculum-title:last-of-type {
+  margin-top: 1rem;
 }
 
 .areas-intervencao-text li,
