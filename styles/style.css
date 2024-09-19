@@ -1,9 +1,30 @@
+@font-face {
+  font-family: "Avenir Book";
+  src:
+    local("/fonts/Avenir LT 45 Book"),
+    url("Avenir LT 45 Book.ttf") format("tff")
+}
+
+@font-face {
+  font-family: "Avenir Medium";
+  src:
+    local("/fonts/Avenir LT 65 Medium"),
+    url("Avenir LT 65 Medium.ttf") format("tff")
+}
+
+@font-face {
+  font-family: "Avenir Black";
+  src:
+    local("/fonts/Avenir LT 95 Black"),
+    url("Avenir LT 95 Black.ttf") format("tff")
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Avenir';
+  font-family: 'Avenir Book';
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,6 +32,12 @@ body {
   width: 100vw;
   margin: 0;
   background-color: #0001;
+}
+
+h1,
+h2 {
+  font-family: 'Avenir Medium';
+  letter-spacing: .03rem;
 }
 
 h1,
@@ -251,6 +278,7 @@ header.form-sent {
 .areas-accao h2,
 .curriculum-title,
 #about h2 {
+  font-family: 'Avenir Medium';
   font-size: 18px;
   letter-spacing: .1rem;
   text-transform: uppercase;
