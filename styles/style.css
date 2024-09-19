@@ -1,21 +1,21 @@
 @font-face {
   font-family: "Avenir Book";
   src:
-    local("/fonts/Avenir LT 45 Book"),
+    local("fonts/Avenir LT 45 Book"),
     url("Avenir LT 45 Book.ttf") format("tff")
 }
 
 @font-face {
   font-family: "Avenir Medium";
   src:
-    local("/fonts/Avenir LT 65 Medium"),
+    local("fonts/Avenir LT 65 Medium"),
     url("Avenir LT 65 Medium.ttf") format("tff")
 }
 
 @font-face {
   font-family: "Avenir Black";
   src:
-    local("/fonts/Avenir LT 95 Black"),
+    local("fonts/Avenir LT 95 Black"),
     url("Avenir LT 95 Black.ttf") format("tff")
 }
 
